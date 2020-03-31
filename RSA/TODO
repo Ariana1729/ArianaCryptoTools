@@ -1,0 +1,8 @@
+Attacks
+ - Common modulus/exponent
+ - Franklin-Reiter related msg
+ - Wiener(and the N^0.294 improvenment)
+ - Coppersmith small roots and pad
+ - Partial d exposure
+ - Fault attack
+ - Bleichenbacher attack(PKCS 1)
