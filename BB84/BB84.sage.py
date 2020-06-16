@@ -53,7 +53,7 @@ class qState():
                 Mn[i, j] = M[int(''.join(bin(i)[_sage_const_2 :].zfill(self.n)[k] for k in N), _sage_const_2 ), int(''.join(bin(j)[_sage_const_2 :].zfill(self.n)[k] for k in N), _sage_const_2 )]
         self.state *= Mn
 
-def parse(s): # UNSAFE, HAS AN EVAL SOMEWHERE
+def parse(s):
     nq,s = s.split('\n')
     nq = int(nq[_sage_const_18 :])
     s = s[_sage_const_7 :]
@@ -64,9 +64,7 @@ def parse(s): # UNSAFE, HAS AN EVAL SOMEWHERE
         t = s.index('>')+_sage_const_1 
         ps = s[:t]
         s = s[t:]
-        pq = ps[-nq-_sage_const_1 :-_sage_const_1 ]
-        pv = ps[:-nq-_sage_const_2 ]#sqrtre.sub(lambda x:x.group(0)[4:]+'^(1/2)',ps[:-n-2])
-        qbit.state[int(pq,_sage_const_2 )]=sage_eval(pv) # UNSAFE
+        qbit.state[int(ps[-nq-_sage_const_1 :-_sage_const_1 ],_sage_const_2 )]=SR(ps[:-nq-_sage_const_2 ])
     if abs(n(qbit.state.norm())-_sage_const_1 )>_sage_const_0p0001 :
         raise ValueError('Norm is not 1')
     return qbit
@@ -108,4 +106,13 @@ qbit.act_qbits(H(), [_sage_const_2 ])
 qbit.act_qbits(R(-_sage_const_1 ), [_sage_const_3 ])
 print(qbit)
 print(parse(str(qbit)))
+print(qbit.measure(_sage_const_0 ))
+print(qbit)
+print(qbit.measure(_sage_const_1 ))
+print(qbit)
+print(qbit.measure(_sage_const_2 ))
+print(qbit)
+print(qbit.measure(_sage_const_3 ))
+print(qbit)
+
 
