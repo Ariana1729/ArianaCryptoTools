@@ -5,9 +5,9 @@
 int main(){
     const unsigned int res[8] = {1,7,11,13,17,19,23,29};
     const unsigned int N = 1000000000;
-    unsigned int nextelem[8][8][2]={}; //res[i]+nextelem[i][j][0]*res[j]=nextelem[i][j][1]
-    unsigned int startk[8]={}; //res[i]*2=res[startk[j]]
-    unsigned int i,j,k,ii,jj,kk;
+    unsigned int nextelem[8][8][2]={0}; //res[i]+nextelem[i][j][0]*res[j]=nextelem[i][j][1]
+    unsigned int startk[8]={0}; //res[i]*2=res[startk[j]]
+    unsigned int i,j,k,ii,jj;
     u_int8_t *primes = calloc(N/30+1,sizeof(char));
     //jth bit of primes[i]: 30*i+res[j]
     primes[0] = '\x01';
