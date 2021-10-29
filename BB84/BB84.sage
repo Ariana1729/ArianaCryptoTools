@@ -28,11 +28,10 @@ for i in range(N):
 print('Bob measuring')
 for i in range(N):
     q = qbits[i]
-    m = mz(q,0) if bob_basis[i]=='0' else mx(q,0)
+    m = mz(q,1) if bob_basis[i]=='0' else mx(q,1)
     bob_measured.append(m)
     #print(i,m,str(q))
 
 print('Key from exchanging measurement states')
-for i in range(N):
-    if alice_basis[i]==bob_basis[i]:
-        print(alice_measured[i],bob_measured[i])
+key = [alice_measured[i] for i in range(N) if alice_basis[i]==bob_basis[i]]
+print(key)
